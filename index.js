@@ -25,7 +25,7 @@ const server = http.createServer(function(request, response) {
                 <body>
                     <form method="post" action="`+url+`">Numbers: 
                         <input type="text" name="numbers" />
-                        <input type="submit" value="Add" />
+                        <input type="submit" name="add" value="Add" />
                     </form>
                 </body>
             </html>`
