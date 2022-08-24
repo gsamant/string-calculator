@@ -67,7 +67,7 @@ async function startTest(gridUrl, capabilities, name) {
   console.log(caps.name, " : Setup Time :", duration.asSeconds());
 
   // navigate to a url
-  let url = "https://actiontestnodejs.azurewebsites.net/";
+  let url = "http://localhost:8080/";
   console.log(url);
   await driver
     .get(url)
