@@ -17,7 +17,7 @@ const server = http.createServer(function(request, response) {
       const numbers = post.numbers
       const result = calculator.add(numbers)
       response.writeHead(200, {'Content-Type': 'text/html'})
-      response.end('Result: ' + result)
+      response.end(`<input type="text" name="result" value= Result:`+ result+` readonly>`)
     })
   } else {
     var html = `

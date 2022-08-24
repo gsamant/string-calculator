@@ -32,7 +32,7 @@ async function searchTextOnGoogle() {
     visual: true,
     "user": USERNAME,
     "accessKey": KEY,
-    tunnel:true,
+    //tunnel:true,
     name: "test session", // name of the test
     build: platform + browserName + version, // name of the build
   
@@ -68,15 +68,21 @@ async function startTest(gridUrl, capabilities, name) {
   console.log(caps.name, " : Setup Time :", duration.asSeconds());
 
   // navigate to a url
-  let url = "http://localhost:8080/";
+  //let url = "http://localhost:8080/";
+  let url = "https://actiontestnodejs.azurewebsites.net/";
   console.log(url);
   await driver
     .get(url)
     .then(function () {
       const session = driver.getSession();
+      driver.findElement(webdriver.By.name("numbers")).sendKeys("2,3,4").then(function(){
+        console.log("Successfully inserted numbers.");
+      });
       driver.findElement(webdriver.By.name('add')).click().then(function(){
         console.log("Successfully clicked first list item.");
       });
+      driver.findElement(webdriver.By.name('result')).Assert.AreEqual(firstName.GetAttribute("value"),"5");
+      
       driver.getTitle().then(function (title) {
         setTimeout(function () {
           driver.executeScript("lambda-status=passed");
