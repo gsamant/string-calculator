@@ -23,7 +23,7 @@ const server = http.createServer(function(request, response) {
     var html = `
             <html>
                 <body>
-                    <form method="post" action="http://localhost:3000">Numbers: 
+                    <form method="post" action="`+url+`">Numbers: 
                         <input type="text" name="numbers" />
                         <input type="submit" value="Add" />
                     </form>
@@ -34,6 +34,7 @@ const server = http.createServer(function(request, response) {
   }
 })
  
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
+const url = process.env.URL || "http://localhost:3000";
 server.listen(port);
 console.log(`Listening at http://localhost:${port}`)
