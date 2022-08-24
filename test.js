@@ -32,6 +32,7 @@ async function searchTextOnGoogle() {
     visual: true,
     "user": USERNAME,
     "accessKey": KEY,
+    tunnel:true,
     name: "test session", // name of the test
     build: platform + browserName + version, // name of the build
   
